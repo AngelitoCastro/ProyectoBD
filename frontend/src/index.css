@@ -1,0 +1,136 @@
+/* ProyectoBD/frontend/src/index.css */
+body {
+  background: #f4f6f7;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  padding: 2rem;
+}
+
+h1 {
+  color: #0a3d62;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Estilos para el contenedor del formulario */
+.form-container {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.form-group label {
+  width: 150px;
+  margin-right: 1.5rem;
+  text-align: right;
+  color: #333;
+  font-weight: bold;
+}
+
+.form-group input {
+  flex-grow: 1;
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.form-group input[disabled] {
+  background: #f0f0f0;
+  cursor: not-allowed;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 1rem;
+}
+
+button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+button[type="submit"] {
+  background: #0a3d62;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background: #3c6382;
+}
+
+.clear-button {
+  background: #7f8c8d;
+  color: white;
+}
+
+.clear-button:hover {
+  background: #95a5a6;
+}
+
+/* Estilos de la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 3rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #e0e0e0;
+  color: #333;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+tr:hover {
+  background-color: #f8f8f8;
+}
+
+td button {
+  padding: 0.5rem 0.8rem;
+  font-size: 0.85rem;
+  margin: 0 0.2rem;
+}
+
+.delete-button {
+  background: #c0392b;
+  color: white;
+}
+
+.delete-button:hover {
+  background: #e74c3c;
+}
