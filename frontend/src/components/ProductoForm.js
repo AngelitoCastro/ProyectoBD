@@ -20,25 +20,39 @@ const ProductoForm = ({
   setEditingProduct,
 }) => {
   const [form, setForm] = useState(initialState);
+  const [proveedores, setProveedores] = useState([]);
+
+  // <-- 2. Cargar la lista de proveedores al montar el componente
+  useEffect(() => {
+    const fetchProveedores = async () => {
+      try {
+        const res = await axios.get("http://localhost:3001/api/proveedores");
+        setProveedores(res.data);
+      } catch (err) {
+        console.error("Error al obtener proveedores:", err);
+      }
+    };
+    fetchProveedores();
+  }, []);
 
   // Carga el producto en el formulario cuando `editingProduct` cambia
   useEffect(() => {
     if (editingProduct) {
       setForm({
-        idProducto: editingProduct.IdProducto,
-        nombre: editingProduct.Nombre,
-        marca: editingProduct.Marca,
-        tipo: editingProduct.Tipo,
-        uso: editingProduct.Uso,
-        precio: editingProduct.Precio,
-        cantidad: editingProduct.Cantidad,
+        idProducto: editingProduct.id_producto,
+        nombre: editingProduct.nombre,
+        marca: editingProduct.marca,
+        tipo: editingProduct.tipo,
+        uso: editingProduct.uso,
+        precio: editingProduct.precio,
+        cantidad: editingProduct.cantidad,
         // Formatear la fecha para el input type="date"
-        fecha_caducidad: editingProduct.FechaCaducidad
-          ? new Date(editingProduct.FechaCaducidad)
+        fecha_caducidad: editingProduct.fecha_caducidad
+          ? new Date(editingProduct.fecha_caducidad)
               .toISOString()
               .substring(0, 10)
           : "",
-        proveedor: editingProduct.Proveedor,
+        proveedor: editingProduct.id_proveedor,
       });
     } else {
       setForm(initialState); // Limpia el formulario si no hay producto editando
@@ -177,14 +191,20 @@ const ProductoForm = ({
         </div>
         <div className="form-group">
           <label htmlFor="proveedor">Proveedor:</label>
-          <input
+          <select
             id="proveedor"
             name="proveedor"
-            placeholder="Proveedor"
             value={form.proveedor}
             onChange={handleChange}
             required
-          />
+          >
+            <option value="">Seleccione un proveedor</option>
+            {proveedores.map((p) => (
+              <option key={p.id_proveedor} value={p.id_proveedor}>
+                {p.nombre}
+              </option>
+            ))}
+          </select>
         </div>
         <div className="form-buttons">
           <button type="submit">

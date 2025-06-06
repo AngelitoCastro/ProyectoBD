@@ -42,7 +42,8 @@ h1 {
   font-weight: bold;
 }
 
-.form-group input {
+.form-group input,
+.form-group select {
   flex-grow: 1;
   padding: 0.8rem;
   border-radius: 5px;

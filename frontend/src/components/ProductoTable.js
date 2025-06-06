@@ -48,6 +48,7 @@ const ProductoTable = ({ reload, onEditProducto, onProductoEliminado }) => {
           <th>Uso</th>
           <th>Precio</th>
           <th>Cantidad</th>
+          <th>Proveedor</th>
           <th>Fecha Caducidad</th>
           <th>Acciones</th>
         </tr>
@@ -63,6 +64,7 @@ const ProductoTable = ({ reload, onEditProducto, onProductoEliminado }) => {
               <td>{prod.uso}</td>
               <td>{prod.precio}</td>
               <td>{prod.cantidad}</td>
+              <td>{prod.id_proveedor}</td>
               <td>
                 {prod.fecha_caducidad
                   ? new Date(prod.fecha_caducidad)
@@ -74,7 +76,7 @@ const ProductoTable = ({ reload, onEditProducto, onProductoEliminado }) => {
               <td>
                 <button onClick={() => onEditProducto(prod)}>Editar</button>
                 <button
-                  onClick={() => handleDelete(prod.IdProducto)}
+                  onClick={() => handleDelete(prod.id_producto)}
                   className="delete-button"
                 >
                   Eliminar
